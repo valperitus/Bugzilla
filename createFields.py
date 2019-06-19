@@ -51,7 +51,7 @@ def main():
     token = getToken()
     print('Token acquired : %s' % token)
 
-    field = Field('field_name', '1', token)
+    field = Field('field_name', '1', token, obsolete=1)
     print('Field created : %s' % field)
 
     status = submitField(field)
