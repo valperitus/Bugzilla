@@ -1,203 +1,203 @@
 {
-  'fields': [{
-      'name': 'closed_date',
-      'type': '5',
+  "fields": [{
+      "name": "closed_date",
+      "type": "5"
     },
     {
-      'name': 'complexity',
-      'type': '2',
-      'options': [
-        '0 Level -Procedural',
-        '1 Level -Basic',
+      "name": "complexity",
+      "type": "2",
+      "options": [
+        "0 Level -Procedural",
+        "1 Level -Basic"
       ]
     },
     {
-      'name': 'creation_date',
-      'type': '5',
+      "name": "creation_date",
+      "type": "5"
     },
     {
-      'name': 'current_entitlement_type',
-      'type': '2',
-      'options': [
-        'Entitled Under Contract'
+      "name": "current_entitlement_type",
+      "type": "2",
+      "options": [
+        "Entitled Under Contract"
       ]
     },
     {
-      'name': 'current_serial_number',
-      'type': '1',
+      "name": "current_serial_number",
+      "type": "1"
     },
     {
-      'name': 'current_severity',
-      'type': '2',
-      'options': [
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
+      "name": "current_severity",
+      "type": "2",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
       ]
     },
     {
-      'name': 'customer_name',
-      'type': '1',
+      "name": "customer_name",
+      "type": "1"
     },
     {
-      'name': 'customer_vertical',
-      'type': '1',
+      "name": "customer_vertical",
+      "type": "1"
     },
     {
-      'name': 'entry_channel',
-      'type': '2',
-      'options': [
-        'PHONE',
+      "name": "entry_channel",
+      "type": "2",
+      "options": [
+        "PHONE"
       ]
     },
     {
-      'name': 'hw_version_id',
-      'type': '1',
+      "name": "hw_version_id",
+      "type": "1"
     },
     {
-      'name': 'hybrid_product_family',
-      'type': '1',
+      "name": "hybrid_product_family",
+      "type": "1"
     },
     {
-      'name': 'incident_creation_date',
-      'type': '5',
+      "name": "incident_creation_date",
+      "type": "5"
     },
     {
-      'name': 'incident_creation_fiscal_quarter_name',
-      'type': '1',
+      "name": "incident_creation_fiscal_quarter_name",
+      "type": "1"
     },
     {
-      'name': 'incident_creation_fiscal_year',
-      'type': '1',
+      "name": "incident_creation_fiscal_year",
+      "type": "1"
     },
     {
-      'name': 'incident_id',
-      'type': '1',
+      "name": "incident_id",
+      "type": "1"
     },
     {
-      'name': 'incident_number',
-      'type': '1',
+      "name": "incident_number",
+      "type": "1"
     },
     {
-      'name': 'incident_status',
-      'type': '2',
-      'options' : [
-        'Closed'
+      "name": "incident_status",
+      "type": "2",
+      "options": [
+        "Closed"
       ]
     },
     {
-      'name': 'incident_type',
-      'type': '2',
-      'options' : [
-        'TAC'
+      "name": "incident_type",
+      "type": "2",
+      "options": [
+        "TAC"
       ]
     },
     {
-      'name': 'incident_urgency',
-      'type': '2',
-      'options' : [
-        'None'
+      "name": "incident_urgency",
+      "type": "2",
+      "options": [
+        "None"
       ]
     },
     {
-      'name': 'initial_problem_code',
-      'type': '2',
+      "name": "initial_problem_code",
+      "type": "2"
     },
     {
-      'name': 'initial_severity',
-      'type': '1',
+      "name": "initial_severity",
+      "type": "1"
     },
     {
-      'name': 'max_severity',
-      'type': '1',
+      "name": "max_severity",
+      "type": "1"
     },
     {
-      'name': 'min_severity',
-      'type': '1',
+      "name": "min_severity",
+      "type": "1"
     },
     {
-      'name': 'note_status',
-      'type': '2',
-      'options' : [
-        'E'
+      "name": "note_status",
+      "type": "2",
+      "options": [
+        "E"
       ]
     },
     {
-      'name': 'note_type',
-      'type': '1',
+      "name": "note_type",
+      "type": "1"
     },
     {
-      'name': 'notes',
-      'type': '1',
+      "name": "notes",
+      "type": "1"
     },
     {
-      'name': 'notes_detail',
-      'type': '4',
+      "name": "notes_detail",
+      "type": "4"
     },
     {
-      'name': 'outage',
-      'type': '2',
-      'options' : [
-        'NO',
-        'YES'
+      "name": "outage",
+      "type": "2",
+      "options": [
+        "NO",
+        "YES"
       ]
     },
     {
-      'name': 'parent_note_id',
-      'type': '1',
+      "name": "parent_note_id",
+      "type": "1"
     },
     {
-      'name': 'part_number',
-      'type': '1',
+      "name": "part_number",
+      "type": "1"
     },
     {
-      'name': 'pf_category',
-      'type': '1',
+      "name": "pf_category",
+      "type": "1"
     },
     {
-      'name': 'problem_code',
-      'type': '2',
-      'options' : [
-        'HARDWARE_FAILURE',
-        'CONFIG_ASSISTANCE',
+      "name": "problem_code",
+      "type": "2",
+      "options": [
+        "HARDWARE_FAILURE",
+        "CONFIG_ASSISTANCE"
       ]
     },
     {
-      'name': 'resolution_code',
-      'type': '2',
-      'options' : [
-        'HW_REPLACE_SO'
+      "name": "resolution_code",
+      "type": "2",
+      "options": [
+        "HW_REPLACE_SO"
       ]
     },
     {
-      'name': 'sr_time_to_close_days',
-      'type': '1',
+      "name": "sr_time_to_close_days",
+      "type": "1"
     },
     {
-      'name': 'sub_tech_name',
-      'type': '1',
+      "name": "sub_tech_name",
+      "type": "1"
     },
     {
-      'name': 'subtech_product_family',
-      'type': '1',
+      "name": "subtech_product_family",
+      "type": "1"
     },
     {
-      'name': 'summary',
-      'type': '4',
+      "name": "summary",
+      "type": "4"
     },
     {
-      'name': 'sw_version',
-      'type': '1',
+      "name": "sw_version",
+      "type": "1"
     },
     {
-      'name': 'sw_version_id',
-      'type': '1',
+      "name": "sw_version_id",
+      "type": "1"
     },
     {
-      'name': 'underlying_cause_code'
-      'type': '1',
-    },
+      "name": "underlying_cause_code",
+      "type": "1"
+    }
   ]
 }
