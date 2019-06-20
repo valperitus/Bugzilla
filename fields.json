@@ -103,7 +103,11 @@
     },
     {
       "name": "initial_problem_code",
-      "type": "2"
+      "type": "2",
+      "options": [
+        "HARDWARE_FAILURE",
+        "CONFIG_ASSISTANCE"
+      ]
     },
     {
       "name": "initial_severity",
