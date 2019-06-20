@@ -172,7 +172,7 @@
       "name": "resolution_code",
       "type": "2",
       "options": [
-        "HW_REPLACE_SO"
+        "HW_REPLACE_SVO"
       ]
     },
     {
