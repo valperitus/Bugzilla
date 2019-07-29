@@ -5,11 +5,7 @@
     },
     {
       "name": "complexity",
-      "type": "2",
-      "options": [
-        "0 Level -Procedural",
-        "1 Level -Basic"
-      ]
+      "type": "1"
     },
     {
       "name": "creation_date",
@@ -17,10 +13,7 @@
     },
     {
       "name": "current_entitlement_type",
-      "type": "2",
-      "options": [
-        "Entitled Under Contract"
-      ]
+      "type": "1"
     },
     {
       "name": "current_serial_number",
@@ -28,14 +21,7 @@
     },
     {
       "name": "current_severity",
-      "type": "2",
-      "options": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5"
-      ]
+      "type": "1"
     },
     {
       "name": "customer_name",
@@ -47,10 +33,7 @@
     },
     {
       "name": "entry_channel",
-      "type": "2",
-      "options": [
-        "PHONE"
-      ]
+      "type": "1"
     },
     {
       "name": "hw_version_id",
@@ -82,32 +65,19 @@
     },
     {
       "name": "incident_status",
-      "type": "2",
-      "options": [
-        "Closed"
-      ]
+      "type": "1"
     },
     {
       "name": "incident_type",
-      "type": "2",
-      "options": [
-        "TAC"
-      ]
+      "type": "1"
     },
     {
       "name": "incident_urgency",
-      "type": "2",
-      "options": [
-        "None"
-      ]
+      "type": "1"
     },
     {
       "name": "initial_problem_code",
-      "type": "2",
-      "options": [
-        "HARDWARE_FAILURE",
-        "CONFIG_ASSISTANCE"
-      ]
+      "type": "1"
     },
     {
       "name": "initial_severity",
@@ -123,10 +93,7 @@
     },
     {
       "name": "note_status",
-      "type": "2",
-      "options": [
-        "E"
-      ]
+      "type": "1"
     },
     {
       "name": "note_type",
@@ -142,11 +109,7 @@
     },
     {
       "name": "outage",
-      "type": "2",
-      "options": [
-        "NO",
-        "YES"
-      ]
+      "type": "1"
     },
     {
       "name": "parent_note_id",
@@ -162,18 +125,11 @@
     },
     {
       "name": "problem_code",
-      "type": "2",
-      "options": [
-        "HARDWARE_FAILURE",
-        "CONFIG_ASSISTANCE"
-      ]
+      "type": "1"
     },
     {
       "name": "resolution_code",
-      "type": "2",
-      "options": [
-        "HW_REPLACE_SVO"
-      ]
+      "type": "1"
     },
     {
       "name": "sr_time_to_close_days",
