@@ -4,7 +4,12 @@ import requests
 from lxml import html
 import json
 
-BASE_URL = 'localhost:8080' # NO http://
+BASE_URL = 'localhost:8080'  # NO http://
+
+USER = 'admin@bugzilla.org'
+PASSWORD = 'password'
+
+auth_cookie = ''
 
 def sendReq(url, querystring):
 
@@ -14,10 +19,10 @@ def sendReq(url, querystring):
         'Upgrade-Insecure-Requests': "1",
         'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.90 Safari/537.36",
         'Accept': "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
-        'Referer': f"{BASE_URL}/bugzilla/editfields.cgi",
+        'Referer': f"http://{BASE_URL}/bugzilla/editfields.cgi",
         'Accept-Encoding': "gzip, deflate",
         'Accept-Language': "en-US,en;q=0.9",
-        'Cookie': "Bugzilla_login=1; Bugzilla_logincookie=d4mA2iRVuk",
+        'Cookie': auth_cookie,
         'Cache-Control': "no-cache",
     }
 
@@ -25,6 +30,25 @@ def sendReq(url, querystring):
         "GET", url, headers=headers, params=querystring)
     return response
 
+def sendLoginReq(url, querystring):
+    headers = {
+        'Host': f'{BASE_URL}',
+        'Origin': f'http://{BASE_URL}',
+        'Connection': "keep-alive",
+        'Upgrade-Insecure-Requests': "1",
+        'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.90 Safari/537.36",
+        'Accept': "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
+        'Referer': f"http://{BASE_URL}/bugzilla/editfields.cgi",
+        'Accept-Encoding': "gzip, deflate",
+        'Accept-Language': "en-US,en;q=0.9",
+        'Cookie': auth_cookie,
+        'Cache-Control': "no-cache",
+        'Content-Type': 'application/x-www-form-urlencoded'
+    }
+
+    response = requests.request(
+        "POST", url, headers=headers, data=querystring)
+    return response
 
 def sendOptionCreateReq(fieldname, optionvalue, token):
 
@@ -47,13 +71,44 @@ def sendOptionCreateReq(fieldname, optionvalue, token):
         'Referer': f"{BASE_URL}/bugzilla/editvalues.cgi",
         'Accept-Encoding': "gzip, deflate",
         'Accept-Language': "en-US,en;q=0.9",
-        'Cookie': "Bugzilla_login=1; Bugzilla_logincookie=d4mA2iRVuk",
+        'Cookie': auth_cookie,
         'Cache-Control': "no-cache",
         'Content-type': "application/x-www-form-urlencoded",
-        }
+    }
 
     response = requests.request("POST", url, data=data, headers=headers)
     return response
+
+
+def login():
+    global auth_cookie
+
+    url = f'http://{BASE_URL}/bugzilla/'
+    querystring = {}
+
+    response = sendReq(url, querystring)
+
+    auth_cookie = f'{response.headers["Set-Cookie"]}; '
+    print('auth_cookie', auth_cookie)
+
+    bugzilla_login_token = getToken(response.text, '//*[@id="mini_login_bottom"]/input[4]/@value')
+
+    url = f'http://{BASE_URL}/bugzilla/index.cgi'
+    querystring = {
+        "Bugzilla_login": USER,
+        "Bugzilla_password": PASSWORD,
+        "Bugzilla_login_token": bugzilla_login_token,
+        "GoAheadAndLogIn": "Log in"
+    }
+
+    response = sendLoginReq(url, querystring)
+
+    # print(response.headers)
+    print('Login Cookie:', response.headers["Set-Cookie"])
+    auth_cookie += f'Bugzilla_login=1; {response.headers["Set-Cookie"]}; '
+    print('auth_cookie', auth_cookie)
+
+    return
 
 
 def getToken(text, xp):
@@ -153,7 +208,8 @@ def createFields(fieldBeans):
     n = 0
     for fieldBean in fieldBeans:
 
-        print('Loading field : %s; Type %s' % (fieldBean['name'], fieldBean['type']))
+        print('Loading field : %s; Type %s' %
+              (fieldBean['name'], fieldBean['type']))
         if fieldBean['type'] == '2':
             createDropdownField(fieldBean)
         else:
@@ -164,6 +220,8 @@ def createFields(fieldBeans):
 
 
 def main():
+
+    login()
 
     fields = loadFields()
     print('Loaded %s fields' % len(fields))
