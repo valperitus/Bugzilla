@@ -102,6 +102,8 @@ def getLoginToken():
 
 
 def login():
+    global auth_cookie
+
     bugzilla_login_token = getLoginToken()
 
     url = f'http://{BASE_URL}/bugzilla/index.cgi'
