@@ -11,6 +11,7 @@ PASSWORD = 'password'
 
 auth_cookie = ''
 
+
 def sendReq(url, querystring):
 
     headers = {
@@ -29,6 +30,7 @@ def sendReq(url, querystring):
     response = requests.request(
         "GET", url, headers=headers, params=querystring)
     return response
+
 
 def sendLoginReq(url, querystring):
     headers = {
@@ -49,6 +51,7 @@ def sendLoginReq(url, querystring):
     response = requests.request(
         "POST", url, headers=headers, data=querystring)
     return response
+
 
 def sendOptionCreateReq(fieldname, optionvalue, token):
 
@@ -80,7 +83,7 @@ def sendOptionCreateReq(fieldname, optionvalue, token):
     return response
 
 
-def login():
+def getLoginToken():
     global auth_cookie
 
     url = f'http://{BASE_URL}/bugzilla/'
@@ -91,7 +94,15 @@ def login():
     auth_cookie = f'{response.headers["Set-Cookie"]}; '
     print('auth_cookie', auth_cookie)
 
-    bugzilla_login_token = getToken(response.text, '//*[@id="mini_login_bottom"]/input[4]/@value')
+    response = sendReq(url, querystring)
+
+    bugzilla_login_token = getToken(
+        response.text, '//*[@id="mini_login_bottom"]/input[4]/@value')
+    return bugzilla_login_token
+
+
+def login():
+    bugzilla_login_token = getLoginToken()
 
     url = f'http://{BASE_URL}/bugzilla/index.cgi'
     querystring = {
